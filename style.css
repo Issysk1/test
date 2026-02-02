@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+.hidden { display: none; }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  height: 100px;
+}
+
+button {
+  padding: 18px 40px;
+  font-size: 22px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: white;
+  color: #ff4d6d;
+  transition: all 0.3s ease;
+}
+
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  animation: float 6s linear infinite;
+}
+
+/* BEES */
+.bee {
+  position: fixed;
+  font-size: 30px;
+  animation: buzz 6s ease-in-out infinite alternate;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.card, .flip {
+  background: rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.35);
+}
+
+.selectable .card.selected {
+  background: #ff4d6d;
+}
+
+/* FLIP */
+.flip img {
+  display: none;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.flip.flipped img {
+  display: block;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes buzz {
+  from { transform: translate(0,0); }
+  to { transform: translate(200px,-120px); }
+}
