@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 🐝💛</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- DECOR -->
+<div id="hearts"></div>
+
+<!-- GREETING -->
+<section>
+  <h1>Hello beautiful 💛</h1>
+  <p>This is an official invitation made with love, chaos, and bees 🐝</p>
+</section>
+
+<!-- VALENTINE -->
+<section id="valentine">
+  <h2>Will you be my Valentine? 💘</h2>
+  <div class="buttons">
+    <button id="yes">YES 💕</button>
+    <button id="no">NO 😢</button>
+  </div>
+  <small>try to catch the NO 😈</small>
+</section>
+
+<!-- YES MESSAGE -->
+<section id="yesMessage" class="hidden">
+  <h1>You chose me 😌💖</h1>
+  <p>No refunds. No returns. No escape.</p>
+  <h2>You’re mine & I’m yours forever<br>We Bee‑long Together 🐝💛</h2>
+</section>
+
+<!-- QUIZ INTRO -->
+<section id="quizIntro" class="hidden">
+  <h2>💖 Love Quiz Time 💖</h2>
+  <p>You must answer correctly to continue 😌</p>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="hidden">
+  <h2 id="question"></h2>
+  <div id="answers"></div>
+</section>
+
+<!-- DATES -->
+<section id="dates" class="hidden">
+  <h2>Our Date Ideas 💑</h2>
+  <div class="cards selectable">
+    <div class="card">🎬 Cinema (I'll let you choose… maybe)</div>
+    <div class="card">🏖️ Walk on the beach</div>
+    <div class="card">☕ Coffee & cheesecake</div>
+    <div class="card">🎮 Play our game (I'll watch you pull these tricks on me)</div>
+    <div class="card">💋 Make love (the hottest idea 🔥)</div>
+  </div>
+  <small id="dateResult">Click one to pick 💛</small>
+</section>
+
+<!-- LOVE LIST -->
+<section id="love" class="hidden">
+  <h2>Things I Love About You 💕</h2>
+  <div class="cards" id="loveList"></div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="hidden">
+  <h2>Our Favorite Memories 💝</h2>
+  <div class="cards">
+    <div class="flip" onclick="flip(this)"> 💝 
+      <img src="cat.jpg" alt="Memory 1: That day 💛"> 
+      <p>That day 💛</p> 
+    </div>
+    <div class="flip" onclick="flip(this)"> 🎁 
+      <img src="car.jpg" alt="Memory 2: Us being us"> 
+      <p>Us being us</p> 
+    </div>
+    <div class="flip" onclick="flip(this)"> ❤️ 
+      <img src="sea.jpg" alt="Memory 3: My favorite memory"> 
+      <p>My favorite memory</p> 
+    </div>
+    <div class="flip" onclick="flip(this)"> 🐝 
+      <img src="lastone.jpg" alt="Memory 4: Random pics"> 
+      <p>Random pics</p> 
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music" class="hidden">
+  <h2>Our Soundtrack 🎶</h2>
+  <p>Edward Sharpe & The Magnetic Zeros — <b>Home</b></p>
+  <iframe width="450" height="300" src="https://www.youtube.com/embed/DHEOF_rcND8?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div><small>(Tap the video to unmute 💛)</small></div>
+</section>
+
+<!-- GOODBYE -->
+<section id="goodbye" class="hidden">
+  <h2>💛 I Love You 💛</h2>
+  <p>Always yours, <br> Your Bee 🐝💖</p>
+</section>
+
+<!-- BEES -->
+<div class="bee">🐝</div>
+<div class="bee">🐝</div>
+
+<script src="script.js"></script>
+</body>
+</html>
