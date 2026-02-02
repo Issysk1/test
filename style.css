@@ -7,9 +7,13 @@ body {
   overflow-x: hidden;
 }
 
-section { padding: 80px 20px; }
+section {
+  padding: 80px 20px;
+}
+
 .hidden { display: none; }
 
+/* BUTTONS */
 .buttons {
   display: flex;
   justify-content: center;
@@ -19,23 +23,40 @@ section { padding: 80px 20px; }
 }
 
 button {
-  padding: 18px 40px;
-  font-size: 22px;
+  padding: 16px 30px;
+  font-size: 20px;
   border-radius: 40px;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
 }
 
-#yes { background: #ff4d6d; color: white; }
-#no  { background: white; color: #ff4d6d; }
+button:hover { transform: scale(1.05); }
 
-button.wrong {
-  background: #ff4d4d !important;
+#yes {
+  background: #ff4d6d;
   color: white;
 }
 
-button.correct {
-  background: #4caf50 !important;
+#no {
+  background: white;
+  color: #ff4d6d;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* QUIZ */
+#answers button {
+  display: block;
+  margin: 12px auto;
+  width: 90%;
+  max-width: 420px;
+}
+
+.wrong {
+  background: #ff2e2e !important;
   color: white;
 }
 
@@ -44,6 +65,7 @@ button.correct {
   position: fixed;
   bottom: -20px;
   animation: float 6s linear infinite;
+  font-size: 24px;
 }
 
 /* BEES */
@@ -58,19 +80,21 @@ button.correct {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+  max-width: 800px;
+  margin: auto;
 }
 
-.card {
-  background: rgba(255,255,255,0.25);
+.card, .flip {
+  background: rgba(255,255,255,0.2);
   padding: 30px;
   border-radius: 18px;
-  transition: transform 0.3s;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
 
-.card:hover { transform: scale(1.05); }
-
-.love-card {
-  animation: fadeUp 0.6s ease forwards;
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.35);
 }
 
 .selectable .card.selected {
@@ -82,48 +106,28 @@ button.correct {
   display: none;
   width: 100%;
   border-radius: 10px;
+  margin-top: 10px;
 }
 
 .flip.flipped img { display: block; }
 
+iframe {
+  display: block;
+  margin: 20px auto 10px;
+  border-radius: 16px;
+}
+
+small {
+  opacity: 0.85;
+}
+
 /* ANIMATIONS */
 @keyframes float {
+  from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-120vh); opacity: 0; }
 }
 
 @keyframes buzz {
+  from { transform: translate(0,0); }
   to { transform: translate(200px,-120px); }
 }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-button.wrong {
-  background: #ff3b3b !important;
-  color: white;
-}
-
-button.correct {
-  background: #4caf50 !important;
-  color: white;
-}
-
-
-#no {
-  z-index: 999;
-}
-
-.love-card {
-  background: rgba(255,255,255,0.3);
-  padding: 25px;
-  border-radius: 18px;
-  animation: fadeUp 0.6s ease forwards;
-  font-size: 18px;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
