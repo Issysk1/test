@@ -94,14 +94,11 @@ button.correct {
 @keyframes buzz {
   to { transform: translate(200px,-120px); }
 }
-/* NO BUTTON ALWAYS FLOATING */
-#no {
-  position: fixed;
-  transition: none;
-  z-index: 999;
-}
 
-/* QUIZ STATES */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 button.wrong {
   background: #ff3b3b !important;
   color: white;
@@ -112,7 +109,10 @@ button.correct {
   color: white;
 }
 
-/* LOVE CARDS */
+#no {
+  z-index: 999;
+}
+
 .love-card {
   background: rgba(255,255,255,0.3);
   padding: 25px;
@@ -121,20 +121,8 @@ button.correct {
   font-size: 18px;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
