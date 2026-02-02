@@ -15,22 +15,29 @@ bees.forEach(b => {
   b.style.top = Math.random() * window.innerHeight + "px";
 });
 
-// 😈 NO ESCAPES
+// 😈 NO BUTTON — TAKEN DIRECTLY FROM YOUR WORKING SCRIPT
 const noBtn = document.getElementById("no");
-noBtn.addEventListener("mouseover", () => {
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", e => {
+  e.preventDefault();
+  moveNo();
+});
+
+function moveNo() {
   noBtn.style.left = Math.random() * (window.innerWidth - 150) + "px";
   noBtn.style.top = Math.random() * (window.innerHeight - 80) + "px";
-});
+}
 
 // 💕 YES BUTTON
 document.getElementById("yes").onclick = () => {
-  bees[0].style.left = "50%";
-  bees[1].style.left = "52%";
-  explodeHearts();
+  document.getElementById("valentine").classList.add("hidden");
   document.getElementById("yesMessage").classList.remove("hidden");
+  explodeHearts();
+
   setTimeout(() => {
     document.getElementById("quizIntro").classList.remove("hidden");
-  }, 2000);
+  }, 2500);
 };
 
 // 💥 HEART EXPLOSION
@@ -46,11 +53,11 @@ function explodeHearts() {
 }
 
 // 📳 VIBRATION
-function vibrate(p) {
-  if (navigator.vibrate) navigator.vibrate(p);
+function vibrate(pattern) {
+  if (navigator.vibrate) navigator.vibrate(pattern);
 }
 
-// 💖 QUIZ (UNCHANGED CONTENT)
+// 💖 QUIZ (FULL ORIGINAL CONTENT + COLORS + VIBRATION)
 const questions = [
   { q: "Who’s hotter? 😏", a: [
     ["Me (obviously)", "I am hot, but you are hotter 😘", false],
@@ -109,20 +116,23 @@ function showQ() {
         setTimeout(() => {
           qi++;
           qi < questions.length ? showQ() : revealNext();
-        }, 700);
+        }, 800);
       } else {
         b.classList.add("wrong");
         vibrate([200, 60, 200]);
-        setTimeout(() => b.innerText = ans[1], 400);
+        setTimeout(() => {
+          b.innerText = ans[1];
+        }, 400);
       }
     };
+
     a.appendChild(b);
   });
 }
 
-// 💝 REVEAL + LOVE CARDS (SAME TEXT, NOW CARDS)
+// 💝 REVEAL + LOVE CARDS
 function revealNext() {
-  ["dates","love","memories","music","goodbye"].forEach((id, idx) => {
+  ["dates","love","memories","music"].forEach((id, idx) => {
     setTimeout(() => {
       document.getElementById(id).classList.remove("hidden");
     }, idx * 1200);
@@ -142,24 +152,26 @@ function revealNext() {
 
   loveItems.forEach((t, i) => {
     setTimeout(() => {
-      const card = document.createElement("div");
-      card.className = "card love-card";
-      card.innerText = t;
-      list.appendChild(card);
+      const c = document.createElement("div");
+      c.className = "card";
+      c.innerText = t;
+      list.appendChild(c);
     }, i * 800);
   });
 }
 
-// 📸 MEMORY FLIP
-function flip(el) { el.classList.toggle("flipped"); }
-
-// 🏖️ DATE PICK
-document.querySelectorAll(".selectable .card").forEach(c => {
-  c.addEventListener("click", () => {
-    document.querySelectorAll(".selectable .card")
-      .forEach(card => card.classList.remove("selected"));
-    c.classList.add("selected");
+// 📅 DATE PICKER
+document.querySelectorAll("#dates .card").forEach(card => {
+  card.onclick = () => {
+    document.querySelectorAll("#dates .card")
+      .forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
     document.getElementById("dateResult").innerText =
-      `You picked: "${c.innerText}" 😘🔥`;
-  });
+      "Perfect choice 😌💖 We’re doing this.";
+  };
 });
+
+// 📸 MEMORY FLIP
+function flip(el) {
+  el.classList.toggle("flipped");
+}
