@@ -15,20 +15,12 @@ bees.forEach(b => {
   b.style.top = Math.random() * window.innerHeight + "px";
 });
 
-// 😈 NO BUTTON — ALWAYS RUNS (DESKTOP + MOBILE)
+// 😈 NO ESCAPES
 const noBtn = document.getElementById("no");
-noBtn.style.position = "fixed";
-
-function moveNo() {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-}
-
-document.addEventListener("mousemove", moveNo);
-document.addEventListener("touchstart", moveNo);
-document.addEventListener("touchmove", moveNo);
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * (window.innerWidth - 150) + "px";
+  noBtn.style.top = Math.random() * (window.innerHeight - 80) + "px";
+});
 
 // 💕 YES BUTTON
 document.getElementById("yes").onclick = () => {
